@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-import com.learning.springdi.services.TestServiceImpl;
+import com.learning.springdi.services.GreetingServiceImpl;
 
 /**
  * @author shivaak on 24-Dec-2018
@@ -21,12 +21,12 @@ public class PropertyInjectedControllerTest {
 	@Before
 	public void setup() {
 		this.pic = new PropertyInjectedController();
-		this.pic.ts1 = new TestServiceImpl();
+		this.pic.greetingService = new GreetingServiceImpl();
 	}
 	
 	@Test
 	public void testSayHello() {
-		assertEquals(TestServiceImpl.msg,this.pic.sayHello());
+		assertEquals(GreetingServiceImpl.msg,this.pic.sayHello());
 	}
 
 }

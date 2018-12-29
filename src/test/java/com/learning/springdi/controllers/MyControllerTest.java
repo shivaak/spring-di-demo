@@ -8,7 +8,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.learning.springdi.services.PrimaryTestServiceImpl;
+import com.learning.springdi.services.EnglishGreetingServiceImpl;
+import com.learning.springdi.services.GreetingServiceImpl;
 
 import static org.junit.Assert.assertEquals;
 
@@ -22,13 +23,13 @@ public class MyControllerTest {
 	
 	@Before
 	public void setup() {
-		mc = new MyController(new PrimaryTestServiceImpl());
+		mc = new MyController(new GreetingServiceImpl());
 		
 	}
 	
 	@Test
 	public void test() {
-		assertEquals(PrimaryTestServiceImpl.msg, mc.sayHello());
+		assertEquals(GreetingServiceImpl.msg, mc.sayHello());
 	}
 
 }

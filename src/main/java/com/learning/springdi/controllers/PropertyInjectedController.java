@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
-import com.learning.springdi.services.TestService;
+import com.learning.springdi.services.GreetingService;
 
 /**
  * @author shivaak on 24-Dec-2018
@@ -17,11 +17,10 @@ import com.learning.springdi.services.TestService;
 public class PropertyInjectedController {
 
 	@Autowired
-	@Qualifier("ts1")
-	public TestService ts1;
+	public GreetingService greetingService;
 	
 	public String sayHello() {
-		return ts1.sayHelloFromInterface();
+		return greetingService.sayGreeting();
 	}
 
 }

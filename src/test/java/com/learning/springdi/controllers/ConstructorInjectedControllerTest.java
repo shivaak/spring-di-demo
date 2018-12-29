@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.learning.springdi.services.TestServiceImpl;
+import com.learning.springdi.services.GreetingServiceImpl;
 
 /**
  * @author shivaak on 24-Dec-2018
@@ -20,12 +20,12 @@ public class ConstructorInjectedControllerTest {
 	
 	@Before
 	public void setup() {
-		this.cic = new ConstructorInjectedController(new TestServiceImpl());
+		this.cic = new ConstructorInjectedController(new GreetingServiceImpl());
 	}
 	
 	@Test
 	public void testSayHello() {
-		assertEquals(TestServiceImpl.msg, cic.sayHello());
+		assertEquals(GreetingServiceImpl.msg, cic.sayHello());
 	}
 
 }

@@ -17,7 +17,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Controller;
 
-import com.learning.springdi.services.TestService;
+import com.learning.springdi.services.GreetingService;
 
 /**
  * @author shivaak on 24-Dec-2018
@@ -25,24 +25,32 @@ import com.learning.springdi.services.TestService;
  */
 @Controller
 public class MyController implements BeanNameAware, ApplicationContextAware , InitializingBean, DisposableBean{
-	
+
+	private GreetingService greetingService;
+
+	@Autowired
+	public MyController(GreetingService gs) {
+		super();
+		this.greetingService = gs;
+	}
+
 	@Override
 	public void destroy() throws Exception {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		System.out.println(applicationContext.getBeanDefinitionNames());
 	}
-	
+
 	@PostConstruct
 	public void init() {
 		System.out.println("Init Method");
@@ -55,17 +63,8 @@ public class MyController implements BeanNameAware, ApplicationContextAware , In
 	}
 
 
-	private TestService pts;
-	
-	@Autowired
-	public MyController(TestService pts) {
-		super();
-		this.pts = pts;
-	}
-
-
 	public String sayHello() {
-		return pts.sayHelloFromInterface();
+		return greetingService.sayGreeting();
 	}
 
 

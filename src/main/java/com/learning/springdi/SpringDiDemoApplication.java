@@ -18,17 +18,18 @@ public class SpringDiDemoApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SpringDiDemoApplication.class, args);
 		
+		System.out.println(" --------------------- ");
 		MyController obj = (MyController) ctx.getBean("myController");
 		System.out.println(obj.sayHello());
 		
 		PropertyInjectedController pic = (PropertyInjectedController)ctx.getBean(PropertyInjectedController.class);
 		System.out.println(pic.sayHello());
 		
-		ConstructorInjectedController cic = (ConstructorInjectedController)ctx.getBean(ConstructorInjectedController.class);
+		ConstructorInjectedController cic = ctx.getBean(ConstructorInjectedController.class);
 		System.out.println(cic.sayHello());
 		
-		SetterInjectedController sic = (SetterInjectedController)ctx.getBean(SetterInjectedController.class);
-		System.out.println(sic.sayHello());
+	/*	SetterInjectedController sic = (SetterInjectedController)ctx.getBean(SetterInjectedController.class);
+		System.out.println(sic.sayHello());*/
 		
 		
 		OuterWorldService ows = ctx.getBean(OuterWorldService.class);

@@ -6,8 +6,8 @@ package com.learning.springdi.controllers;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.learning.springdi.services.TestServiceImpl;
-import com.learning.springdi.services.TestServiceImpl2;
+import com.learning.springdi.services.GreetingServiceImpl;
+import com.learning.springdi.services.SetterGreetingServiceImpl;
 
 import static org.junit.Assert.assertEquals;
 
@@ -22,12 +22,12 @@ public class SetterInjectedControllerTest {
 	@Before
 	public void setup() {
 		this.sic = new SetterInjectedController();
-		this.sic.setTs(new TestServiceImpl2());
+		this.sic.setGreetingService(new SetterGreetingServiceImpl());
 	}
 	
 	@Test
 	public void testSayHello() {
-		assertEquals(TestServiceImpl2.msg,this.sic.sayHello());
+		assertEquals(SetterGreetingServiceImpl.msg,this.sic.sayHello());
 	}
 
 }

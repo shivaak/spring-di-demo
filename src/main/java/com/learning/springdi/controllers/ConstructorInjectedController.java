@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Controller;
 
-import com.learning.springdi.services.TestService;
+import com.learning.springdi.services.GreetingService;
 
 /**
  * @author shivaak on 24-Dec-2018
@@ -29,18 +29,18 @@ public class ConstructorInjectedController implements BeanPostProcessor {
 		return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
 	}
 
-	private TestService ts;
+	private GreetingService greetingService;
 	
 	public ConstructorInjectedController() {
 		super();
 	}
 	@Autowired(required=true)
-	public ConstructorInjectedController(@Qualifier("ts1")TestService ts) {
-		this.ts= ts;
+	public ConstructorInjectedController(GreetingService ts) {
+		this.greetingService= ts;
 	}
 	
 	public String sayHello() {
-		return ts.sayHelloFromInterface();
+		return greetingService.sayGreeting();
 	}
 
 }

@@ -8,19 +8,20 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 /**
- * @author shivaak on 25-Dec-2018
+ * @author shivaak on 24-Dec-2018
  *
  */
 @Service
 @Primary
-@Profile("es")
-public class PrimarySpanishTestServiceImpl implements TestService{
+@Profile("dev")
+public class GreetingServiceImpl implements GreetingService {
 
-	public static final String msg = "This is a spanish msg";
+	public static final String msg = "Hello directly from Greeting Service used for dev profile";
 	
 	@Override
-	public String sayHelloFromInterface() {
+	public String sayGreeting() {
 		return msg;
 	}
+
 
 }
